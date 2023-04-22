@@ -1,0 +1,62 @@
+/*CSS*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: Helvetica;
+}
+
+#tree {
+  width: 100%;
+  height: 100%;
+}
+
+/* Change the color of one particular node */
+/* svg.tommy [data-n-id='3'].node.male > rect {
+  fill: #00d3a5;
+} */
+
+/* Female Bubble Color */
+/* svg.tommy .node.female > rect {
+  fill: #ff46a3;
+} */
+
+/* Male Bubble Color */
+/* svg .node.male > rect {
+  fill: #039be5;
+} */
+
+/* Page Background Color */
+/* #tree > svg {
+  background-color: #2e2e2e;
+} */
+
+/* Color of all links */
+/* [data-l-id] path {
+  stroke: #ffca28;
+} */
+
+.abouttextarea {
+  /* position: relative; */
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  margin: 2px 15px;
+  color: #fff;
+  width: 20px;
+  resize: none;
+}
+
+.hyperlink {
+  text-decoration: none;
+  color: white;
+  margin: 0px 15px;
+  height: 100%;
+}
+
+label[for='aboutlabel'],
+label[for='hyperlinklabel'] {
+  margin: 0px 15px;
+}

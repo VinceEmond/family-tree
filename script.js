@@ -177,8 +177,10 @@ family.on('field', function (sender, args) {
       var borndate = args.data['born'].substring(0, 4);
       var dieddate = args.data['died'].substring(0, 4);
       args.value = borndate + ' - ' + dieddate;
-    } else {
+    } else if (args.data['born']) {
       args.value = `Age: ${getAge(args.data['born'])}`;
+    } else {
+      args.value;
     }
   }
 });

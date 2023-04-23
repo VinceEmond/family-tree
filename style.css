@@ -60,3 +60,22 @@ label[for='aboutlabel'],
 label[for='hyperlinklabel'] {
   margin: 0px 15px;
 }
+
+#bft-avatar {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  top: 18px;
+}
+
+#bft-avatar img:first-of-type {
+  margin: 0 auto !important;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+  width: auto !important;
+  border-radius: 0 !important;
+}

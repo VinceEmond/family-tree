@@ -149,6 +149,7 @@ var family = new FamilyTree(document.getElementById('tree'), {
       { type: 'textbox', label: 'Photo Url', binding: 'photo', btn: 'Upload' },
       { type: 'about', label: 'About', binding: 'about' },
       { type: 'hyperlink', label: 'Facebook', binding: 'facebook_url' },
+      { type: 'about', label: 'age', binding: 'age' },
     ],
   },
 });
@@ -183,6 +184,12 @@ family.on('field', function (sender, args) {
       args.value = borndate + ' - ' + dieddate;
     }
     // else args.value = '';
+  }
+});
+
+family.on('field', function (sender, args) {
+  if (args.name == 'age') {
+    args.value = 69;
   }
 });
 

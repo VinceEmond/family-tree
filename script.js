@@ -149,7 +149,6 @@ var family = new FamilyTree(document.getElementById('tree'), {
       { type: 'textbox', label: 'Photo Url', binding: 'photo', btn: 'Upload' },
       { type: 'about', label: 'About', binding: 'about' },
       { type: 'hyperlink', label: 'Facebook', binding: 'facebook_url' },
-      { type: 'about', label: 'age', binding: 'age' },
     ],
   },
 });
@@ -169,12 +168,8 @@ function importCSVHandler() {
 //     family.importJSON();
 // }
 
-// family.on('field', function (sender, args) {
-//   if (args.name == 'born') {
-//     var date = new Date(args.value);
-//     args.value = date.toLocaleDateString();
-//   }
-// });
+const getAge = (birthDate) =>
+  Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e10);
 
 family.on('field', function (sender, args) {
   if (args.name == 'born') {
@@ -182,14 +177,9 @@ family.on('field', function (sender, args) {
       var borndate = args.data['born'].substring(0, 4);
       var dieddate = args.data['died'].substring(0, 4);
       args.value = borndate + ' - ' + dieddate;
+    } else {
+      args.value = `Age: ${getAge(args.data['born'])}`;
     }
-    // else args.value = '';
-  }
-});
-
-family.on('field', function (sender, args) {
-  if (args.name == 'age') {
-    args.value = 69;
   }
 });
 

@@ -6,9 +6,9 @@ Building a family tree page for my own family leveraging the FamilyTreeJS API.
 
 ![App Screenshot](https://github.com/VinceEmond/family-tree/blob/main/public/preview.png?raw=true)
 
-### Current 20230424 Version with Changes
+### My Version with Modifications & Added Feature
 
-![App Screenshot](https://github.com/VinceEmond/family-tree/blob/main/public/preview.png?raw=true)
+![App Screenshot](https://github.com/VinceEmond/family-tree/blob/main/public/230424-CurrentVersion.png?raw=true)
 
 ### Modified & Added Features
 

@@ -6,7 +6,7 @@ Building a family tree page for my own family leveraging the FamilyTreeJS API.
 
 ![App Screenshot](/public/FirstLook-Template.png)
 
-### My Version with Modifications & Added Feature
+### My Version with Modifications & Added Features
 
 ![App Screenshot](/public/230424-CurrentVersion.png)
 

@@ -29,9 +29,9 @@ FamilyTree.templates.hugo_female.node =
 FamilyTree.templates.hugo_male.node =
   '<rect x="0" y="0" height="140" width="250" stroke-width="1" fill="url(#hugo_grad_male)" stroke="#aeaeae" rx="7" ry="7"></rect>';
 
-FamilyTree.elements.about = function (data, editElement, minWidth, readOnly) {
+FamilyTree.elements.bio = function (data, editElement, minWidth, readOnly) {
   // var id = FamilyTree.elements.generateId();
-  var id = 'aboutlabel';
+  var id = 'biolabel';
   var value = data[editElement.binding];
   if (value == undefined) value = '';
   if (readOnly && !value) {
@@ -43,7 +43,7 @@ FamilyTree.elements.about = function (data, editElement, minWidth, readOnly) {
   var rDisabledAttr = readOnly ? 'disabled' : '';
   return {
     html: `<label for="${id}">${editElement.label}</label>
-                      <textarea ${rDisabledAttr} ${rOnlyAttr} class="abouttextarea" id="${id}" name="${id}" style="width: 100%;height: 100px;" data-binding="${editElement.binding}">${value}</textarea>`,
+                      <textarea ${rDisabledAttr} ${rOnlyAttr} class="biotextarea" id="${id}" name="${id}" style="width: 100%;height: 100px;" data-binding="${editElement.binding}">${value}</textarea>`,
     id: id,
     value: value,
   };
@@ -175,7 +175,7 @@ var family = new FamilyTree(document.getElementById('tree'), {
         { type: 'textbox', label: 'City', binding: 'city' },
       ],
       { type: 'textbox', label: 'Photo Url', binding: 'photo', btn: 'Upload' },
-      { type: 'about', label: 'About', binding: 'about' },
+      { type: 'bio', label: 'Biography', binding: 'bio' },
       { type: 'hyperlink', label: 'Facebook', binding: 'facebook_url' },
     ],
   },
@@ -259,8 +259,7 @@ const placeholders = [
     city: 'Calgary',
     country: 'Canada',
     address: '1 Fake Street',
-    about:
-      'Bacon ipsum dolor amet bresaola doner tri-tip pastrami shoulder, salami flank. Strip steak chicken shank, pork loin buffalo andouille frankfurter. Ham hock frankfurter tongue, turducken andouille alcatra landjaeger buffalo',
+    bio: 'Bacon ipsum dolor amet bresaola doner tri-tip pastrami shoulder, salami flank. Strip steak chicken shank, pork loin buffalo andouille frankfurter. Ham hock frankfurter tongue, turducken andouille alcatra landjaeger buffalo',
     facebook_url: 'https://www.facebook.com/a.fb.profile.42069/',
   },
   {
@@ -287,8 +286,7 @@ const placeholders = [
     city: 'Squamish',
     country: 'Canada',
     address: '1 Fake Street',
-    about:
-      'Bacon ipsum dolor amet bresaola doner tri-tip pastrami shoulder, salami flank. Strip steak chicken shank, pork loin buffalo andouille frankfurter. Ham hock frankfurter tongue, turducken andouille alcatra landjaeger buffalo',
+    bio: 'Bacon ipsum dolor amet bresaola doner tri-tip pastrami shoulder, salami flank. Strip steak chicken shank, pork loin buffalo andouille frankfurter. Ham hock frankfurter tongue, turducken andouille alcatra landjaeger buffalo',
     facebook_url: 'https://www.facebook.com/a.fb.profile.42069/',
   },
   {

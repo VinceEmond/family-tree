@@ -1,5 +1,10 @@
 //JavaScript
 
+var cameraicon = `<svg color="#fff" width="24" height="24" viewBox="0 0 550.801 550.801" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>`;
+function morePhotosFunction() {
+  console.log('More photos incoming!');
+}
+
 FamilyTree.templates.hugo.field_0 =
   '<text data-width="230" style="font-size: 18px;font-weight:bold;" fill="#ffffff" x="125" y="85" text-anchor="middle">{val}</text>';
 
@@ -80,6 +85,7 @@ var family = new FamilyTree(document.getElementById('tree'), {
   // writeToUrlParams: true,
   // },
   mouseScrool: FamilyTree.action.zoom,
+  nodeMouseClick: FamilyTree.action.details,
   miniMap: false,
   zoom: { speed: 15, smooth: 10 },
   mode: 'dark',
@@ -131,12 +137,34 @@ var family = new FamilyTree(document.getElementById('tree'), {
     addMore: 'Add more elements',
     addMoreFieldName: 'Element name',
     generateElementsFromFields: false,
+    buttons: {
+      edit: {
+        icon: FamilyTree.icon.edit(24, 24, '#fff'),
+        text: 'Edit',
+        hideIfEditMode: true,
+        hideIfDetailsMode: false,
+      },
+      share: {
+        icon: FamilyTree.icon.share(24, 24, '#fff'),
+        text: 'Share',
+      },
+      pdf: {
+        icon: FamilyTree.icon.pdf(24, 24, '#fff'),
+        text: 'Save as PDF',
+      },
+      photos: {
+        icon: cameraicon,
+        text: 'More Photos',
+        onclick: morePhotosFunction,
+      },
+    },
     elements: [
       { type: 'textbox', label: 'Full Name', binding: 'fullname' },
       { type: 'textbox', label: 'Email Address', binding: 'email' },
       [
         { type: 'textbox', label: 'Phone', binding: 'phone' },
         { type: 'date', label: 'Date Of Birth', binding: 'born' },
+        { type: 'date', label: 'Date Of Death', binding: 'died' },
       ],
       [
         {
@@ -192,6 +220,10 @@ family.on('field', function (sender, args) {
       // console.log()
     }
   }
+});
+
+family.on('click', function (sender, args) {
+  console.log('Clicked on node ID:', args.node.id);
 });
 
 // Option to start with details card already open

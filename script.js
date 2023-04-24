@@ -4,13 +4,13 @@ FamilyTree.templates.hugo.field_0 =
   '<text data-width="230" style="font-size: 18px;font-weight:bold;" fill="#ffffff" x="125" y="85" text-anchor="middle">{val}</text>';
 
 FamilyTree.templates.hugo.field_2 =
-  '<text class="field_2" style="font-size: 14px;" fill="#ffffff" x="125" y="125" text-anchor="middle">{val}, Canada</text>';
+  '<text class="field_2" style="font-size: 14px;" fill="#ffffff" x="125" y="125" text-anchor="middle">{val}</text>';
 
 FamilyTree.templates.hugo_male.field_2 =
-  '<text class="field_2" style="font-size: 14px;" fill="#ffffff" x="125" y="125" text-anchor="middle">{val}, Canada</text>';
+  '<text class="field_2" style="font-size: 14px;" fill="#ffffff" x="125" y="125" text-anchor="middle">{val}</text>';
 
 FamilyTree.templates.hugo_female.field_2 =
-  '<text class="field_2" style="font-size: 14px;" fill="#ffffff" x="125" y="125" text-anchor="middle">{val}, Canada</text>';
+  '<text class="field_2" style="font-size: 14px;" fill="#ffffff" x="125" y="125" text-anchor="middle">{val}</text>';
 
 // FamilyTree.templates.hugo_male.field_3 =
 // '<text data-width="230" data-text-overflow="multiline-4-ellipsis" style="font-size: 20px;" fill="#fff" x="10" y="28" text-anchor="start">{val}</text>';
@@ -172,6 +172,7 @@ const getAge = (birthDate) =>
   Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e10);
 
 family.on('field', function (sender, args) {
+  // Format date for node
   if (args.name == 'born') {
     if (args.data['died']) {
       var borndate = args.data['born'].substring(0, 4);
@@ -181,6 +182,14 @@ family.on('field', function (sender, args) {
       args.value = `Age: ${getAge(args.data['born'])}`;
     } else {
       args.value;
+    }
+  }
+
+  // Format city for node
+  if (args.name == 'city') {
+    if (args.data['city'] && args.data['country']) {
+      args.value = `${args.data['city']}, ${args.data['country']}`;
+      // console.log()
     }
   }
 });

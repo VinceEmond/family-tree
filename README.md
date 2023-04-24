@@ -4,11 +4,11 @@ Building a family tree page for my own family leveraging the FamilyTreeJS API.
 
 ### Original FamilyTreeJS "First Look (hugo)" Template
 
-![App Screenshot](https://github.com/VinceEmond/family-tree/blob/main/public/preview.png?raw=true)
+![App Screenshot](/public/FirstLook-Template.png)
 
 ### My Version with Modifications & Added Feature
 
-![App Screenshot](https://github.com/VinceEmond/family-tree/blob/main/public/230424-CurrentVersion.png?raw=true)
+![App Screenshot](/public/230424-CurrentVersion.png)
 
 ### Modified & Added Features
 

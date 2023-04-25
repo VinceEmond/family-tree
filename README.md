@@ -46,8 +46,9 @@ Building a family tree page for my own family leveraging the FamilyTreeJS API.
 
 ### Todos
 
+- [ ] Find a way to change which node the tree starts centered on
 - [ ] Add fields
 - [ ] Add "Last updated" field to help establish confidence in data accuary
 - [x] Change "About" to "Bio"
 - [x] Format current city + country based on seperate values (remove hard code for country)
-- [ ] Find a way to leverage existing exported data from EchoFamily
+- [x] Find a way to leverage existing exported data from EchoFamily

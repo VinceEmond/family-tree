@@ -13,12 +13,17 @@ A guide to help convert an exported CSV file from Family Echo into an importable
 - Open CSV and Save-as .xls format
 - Create column "id" next to the existing column "ID"
   - Fill with Sequential numbers starting with 1
-- Create column "mid" next to the existing column "Mother ID"
-- Create column "fid" next to the existing column "Father ID"
-- Insert the following formula into all cells of both "mid" and "fid" columns
+- Create column "mid" directly right to the existing column "Mother ID"
+- Create column "fid" directly right to the existing column "Father ID"
+  - Insert the following formula into the first row, then pull to auto-fill the remainder of rows in the column:
+    ```
+    =IF(ISNA(VLOOKUP(INDIRECT(ADDRESS(ROW(),COLUMN()-1)), A:B,2, FALSE)), "", VLOOKUP(INDIRECT(ADDRESS(ROW(),COLUMN()-1)), A:B,2, FALSE))
+    ```
+    partner id formula
   ```
-  =IF(ISNA(VLOOKUP(L5, A2:B91,2, FALSE)), "", VLOOKUP(L5, A2:B91,2, FALSE))
+  =IF(ISNA(VLOOKUP(INDIRECT(ADDRESS(ROW(),COLUMN()-1)), A:B,2, FALSE)), INDIRECT(ADDRESS(ROW(),COLUMN()+9)), VLOOKUP(INDIRECT(ADDRESS(ROW(),COLUMN()-1)), A:B,2, FALSE))
   ```
+  - You may need to adjust "L2" to the cell
   - If the formula is working correctly it should return the newly created sequencial "id" value in column B the right of the matched value found in column A.
   - If no match is found in the "ID" colmun, it returns "".
 - Save as .CSV
@@ -39,16 +44,15 @@ A guide to help convert an exported CSV file from Family Echo into an importable
 
   ```
   {lb}
-     "og_id": {f1},
-     "id": {seq},
-     "mid": {f11},
-     "fid": {f13},
-     "pids": [{f31}],
-     "gender": "{f9.toLowerCase()}",
-     "name": "{f2}",
+     "id": {f2},
+     "mid": {f13},
+     "fid": {f16},
+     "pids": [{f35}],
+     "gender": "{f10.toLowerCase()}",
+     "name": "{f3}",
      "photo": "",
-     "fullname": "{f2}",
-     "born": "{("0000" + f22).slice(-4)}-{("00" + f23).slice(-2)}-{("00" + f24).slice(-2)}",
+     "fullname": "{f3}",
+     "born": "{("0000" + f25).slice(-4)}-{("00" + f26).slice(-2)}-{("00" + f27).slice(-2)}",
      "email": "",
      "phone": "",
      "city": "",
@@ -68,9 +72,29 @@ A guide to help convert an exported CSV file from Family Echo into an importable
 - Click "Convert CSV To JSON via Template"
 - Click "Download Result" at the bottom of the page
 
+### Manual Adjustments + Find and replace
+
+- Make sure everyone has a name
+- Find and Erase
+  - "mid": ,
+  - "fid": ,
+  - "pids": [],
+  - 0000-00-00
+- Find and replace
+  - -00
+    - Replace with: -01
+- Make sure there's no blank nodes at the bottom of the file
+- If someone has two ex-partners, make sure to manually add their IDs into the pids array
+
 ### Import into FamilyTreeJS App
 
 - If everything worked properly you should have all the correctly formatted fields required for the FamilyTreeJS app
+
+### Exceptions to Consider
+
+- Nicknames in Family Echo cause issues
+- Multiple Ex Partners causes issues
+- Ex Partners are not considered partners in Family Echo therefor need to be relinked
 
 ### Useful links
 

@@ -84,9 +84,12 @@ var family = new FamilyTree(document.getElementById('tree'), {
   // readFromUrlParams: true,
   // writeToUrlParams: true,
   // },
+  // scaleInitial: FamilyTree.match.boundary,
+  // roots: [13, 14],
   mouseScrool: FamilyTree.action.zoom,
   nodeMouseClick: FamilyTree.action.details,
-  miniMap: false,
+  // dottedLines: [{ from: 10, to: 3 }],
+  miniMap: true,
   zoom: { speed: 15, smooth: 10 },
   mode: 'dark',
   template: 'hugo',
@@ -198,6 +201,11 @@ function importCSVHandler() {
 
 const getAge = (birthDate) =>
   Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e10);
+
+family.on('init', function (sender) {
+  // sender.editUI.show(1, true);
+  // family.center(sender);
+});
 
 family.on('field', function (sender, args) {
   // Format date for node

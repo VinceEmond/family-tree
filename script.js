@@ -226,6 +226,15 @@ family.on('click', function (sender, args) {
   console.log('Clicked on node ID:', args.node.id);
 });
 
+family.editUI.on('button-click', function (sender, args) {
+  if (args.name == 'photos') {
+    // var data = family.get(args.nodeId);
+    // window.open(data.map);
+    var data = family.get(args.nodeId);
+    console.log('Loading photos! for id:' + args.nodeId);
+  }
+});
+
 // Option to start with details card already open
 // family.on('init', function (sender) {
 //   sender.editUI.show(1, true);

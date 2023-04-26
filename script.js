@@ -205,6 +205,7 @@ const getAge = (birthDate) =>
 family.on('init', function (sender) {
   // sender.editUI.show(1, true);
   // family.center(sender);
+  family.changeRoots(87, [87]);
 });
 
 family.on('field', function (sender, args) {

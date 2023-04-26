@@ -85,6 +85,10 @@ A guide to help convert an exported CSV file from Family Echo into an importable
     - Replace with: -01
 - Make sure there's no blank nodes at the bottom of the file
 - If someone has two ex-partners, make sure to manually add their IDs into the pids array
+  - Alphe
+  - Charles Emond
+  - Brenda Christine
+  - Etc
 
 ### Import into FamilyTreeJS App
 

@@ -1,3 +1,7 @@
+:root {
+  --page-bg-color: #1b1b1b;
+}
+
 /*CSS*/
 html,
 body {
@@ -20,19 +24,21 @@ body {
 } */
 
 /* Female Bubble Color */
-/* svg.tommy .node.female > rect {
-  fill: #ff46a3;
-} */
+svg .node.female > rect {
+  /* fill: #ff46a3; */
+  fill: #9e2a2b;
+}
 
 /* Male Bubble Color */
-/* svg .node.male > rect {
-  fill: #039be5;
-} */
+svg .node.male > rect {
+  /* fill: #039be5; */
+  fill: #335c67;
+}
 
 /* Page Background Color */
-/* #tree > svg {
-  background-color: #2e2e2e;
-} */
+#tree > svg {
+  background-color: var(--main-bg-color);
+}
 
 /* Color of all links */
 /* [data-l-id] path {
@@ -40,7 +46,7 @@ body {
 } */
 
 .biotextarea {
-  background-color: #2e2e2e;
+  background-color: #1b1b1b;
   border-radius: 10px;
   margin: 2px 12px;
   color: #fff;

@@ -48,6 +48,8 @@ A guide to help convert an exported CSV file from Family Echo into an importable
      "mid": {f13},
      "fid": {f16},
      "pids": [{f35}],
+     "divorced": [{f44}],
+     "divorced2":[{f45}],
      "gender": "{f10.toLowerCase()}",
      "name": "{f3}",
      "photo": "",
@@ -80,6 +82,8 @@ A guide to help convert an exported CSV file from Family Echo into an importable
   - "fid": ,
   - "pids": [],
   - 0000-00-00
+  - "divorced": [],
+  - "divorced2": [],
 - Find and replace
   - -00
     - Replace with: -01

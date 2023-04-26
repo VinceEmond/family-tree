@@ -244,6 +244,24 @@ family.editUI.on('button-click', function (sender, args) {
   }
 });
 
+// Apply to divorced nodes
+family.on('render-link', function (sender, args) {
+  var cnodeData = family.get(args.cnode.id);
+  var nodeData = family.get(args.node.id);
+
+  if (
+    cnodeData.divorced != undefined &&
+    nodeData.divorced != undefined &&
+    cnodeData.divorced.includes(args.node.id) &&
+    nodeData.divorced.includes(args.cnode.id)
+  ) {
+    // console.log(args.html);
+    // args.html = args.html.replace('path', "path stroke-dasharray='3, 2'");
+    // args.html = args.html.replace('path', "path stroke-dasharray='1, 100'");
+    args.html = args.html.replace('path', "stroke=''");
+  }
+});
+
 // Option to start with details card already open
 // family.on('init', function (sender) {
 //   sender.editUI.show(1, true);

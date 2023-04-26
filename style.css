@@ -1,8 +1,9 @@
 :root {
   --page-bg-color: #1b1b1b;
+  --bubble-female-color: #9e2a2b;
+  --bubble-male-color: #335c67;
 }
 
-/*CSS*/
 html,
 body {
   width: 100%;
@@ -26,13 +27,13 @@ body {
 /* Female Bubble Color */
 svg .node.female > rect {
   /* fill: #ff46a3; */
-  fill: #9e2a2b;
+  fill: var(--bubble-female-color);
 }
 
 /* Male Bubble Color */
 svg .node.male > rect {
   /* fill: #039be5; */
-  fill: #335c67;
+  fill: var(--bubble-male-color);
 }
 
 /* Page Background Color */
@@ -46,7 +47,7 @@ svg .node.male > rect {
 } */
 
 .biotextarea {
-  background-color: #1b1b1b;
+  background-color: var(--main-bg-color);
   border-radius: 10px;
   margin: 2px 12px;
   color: #fff;
